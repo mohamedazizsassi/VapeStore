@@ -23,7 +23,7 @@ export default async function OwnerLayout({ children }: { children: React.ReactN
           ["/owner/customers", "Customers"],
           ["/owner/shifts", "Shifts"],
           ["/owner/users", "Users"],
-          ["/worker/sale", "Sell"],
+          ["/worker", "Sell"],
         ].map(([href, label]) => (
           <Link key={href} href={href} className="px-3 py-2 rounded bg-white/5 whitespace-nowrap">
             {label}

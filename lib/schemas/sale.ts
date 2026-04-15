@@ -9,7 +9,7 @@ export const saleSchema = z
   .object({
     client_id: z.string().uuid(),
     shift_id: z.string().uuid(),
-    payment_method: z.enum(["cash", "other", "credit"]),
+    payment_method: z.enum(["cash", "credit"]),
     customer_id: z.string().uuid().nullable().optional(),
     items: z.array(saleItemInput).min(1),
   })

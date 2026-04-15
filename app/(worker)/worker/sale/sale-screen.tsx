@@ -49,7 +49,7 @@ export function SaleScreen({
 
   const total = cart.reduce((a, l) => a + l.qty * l.unit_price, 0);
 
-  async function submit(payment_method: "cash" | "other" | "credit") {
+  async function submit(payment_method: "cash" | "credit") {
     if (!cart.length) return;
     if (payment_method === "credit" && !customerId) {
       setError("Pick a customer to sell on credit.");
@@ -148,12 +148,9 @@ export function SaleScreen({
         </label>
 
         {error && <p className="text-xs text-amber-400">{error}</p>}
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <button className="btn" disabled={!cart.length || pending} onClick={() => submit("cash")}>
             {pending ? "…" : "Cash"}
-          </button>
-          <button className="btn-ghost" disabled={!cart.length || pending} onClick={() => submit("other")}>
-            Other
           </button>
           <button
             className="btn-ghost"
